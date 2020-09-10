@@ -1,0 +1,24 @@
+{
+ "name": "cpuRoller",
+ "description": "Enter your project description",
+ "author": {
+  "name": "Sarthak Pranesh",
+  "email": "sarthakpranesh08@gmail.com"
+ },
+ "version": "0.1.0",
+ "binaryname": "cpuRoller",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run start",
+  "build-prod": "wails build",
+  "build-debug": "wails build -d"
+ },
+ "WailsVersion": "",
+ "CrossCompile": false,
+ "Platform": "",
+ "Architecture": "",
+ "LdFlags": ""
+}
