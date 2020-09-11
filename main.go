@@ -2,16 +2,26 @@ package main
 
 import (
 	"cpuRoller/pkg/sys"
-	"fmt"
 
 	"github.com/leaanthony/mewn"
 	"github.com/wailsapp/wails"
 )
 
-func basic() string {
-	stats := &sys.Stats{}
-	var cpuUse *sys.CpuUsage = stats.GetCPUUsage()
-	return fmt.Sprint(cpuUse.Average)
+var (
+	stats    = &sys.Stats{}
+	cpuStats sys.CpuStats
+)
+
+func initStats() sys.CpuStats {
+	cpuStats = stats.GetStats()
+	return cpuStats
+}
+
+func updateCPUStats() sys.CpuStats {
+	cpuStats.Usage = stats.GetCPUUsage()
+	cpuStats.Swap = stats.GetSwapMemory()
+	cpuStats.Mem = stats.GetMemory()
+	return cpuStats
 }
 
 func main() {
@@ -27,6 +37,7 @@ func main() {
 		CSS:    css,
 		Colour: "#131313",
 	})
-	app.Bind(basic)
+	app.Bind(initStats)
+	app.Bind(updateCPUStats)
 	app.Run()
 }
