@@ -1,5 +1,11 @@
 # CpuRoller (mini project)
 
+<div align="center">
+
+<img src="./sample.png" />
+
+</div>
+
 <br />
 
 ## What it does
@@ -15,11 +21,17 @@ A simple Desktop application that shows realtime CPU usage of your machine. Uses
 
 ## For Developer:
 Make sure you have GO lang and npm installed
+<br />
 1. `git clone https://github.com/sarthakpranesh/CpuRoller`
 2. `cd CpuRoller`
 3. If you don't have Wails then install it `go get -u github.com/wailsapp/wails/cmd/wails`
 4. Compile application using `wails build`
 5. Run application `./build/cpuRoller`
+
+<br />
+
+## Found Something Broken
+If you find something broken or not working on your machine/os, please feel free to open an issue.
 
 <br />
 
