@@ -1,7 +1,12 @@
 /* Background color: #162447
 Cards overlay: #1f4068
 Primary Text: #ececec
-Secondary Text: #e43f5a */
+Secondary Text: #e43f5a 
+
+Progress Bar trail: #f4f4f4
+Progress Bar Path: #f0a500
+Progress Bar Circle width: #f0a500
+*/
 
 .App {
   display: flex;
@@ -25,14 +30,15 @@ Secondary Text: #e43f5a */
 }
 
 .SysInfo {
-  align-self: flex-start;
-  margin: 4px 100px;
+  margin: 0px;
+  margin-top: 10px;
 }
 
 .GridContainer {
   display: grid;
   grid-template-columns: auto auto auto;
   margin: 10px;
+  margin-bottom: 40px;
 }
 
 .GridItem {

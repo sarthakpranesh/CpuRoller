@@ -1,11 +1,11 @@
 {
  "name": "cpuRoller",
- "description": "Enter your project description",
+ "description": "Real time system usage and information",
  "author": {
   "name": "Sarthak Pranesh",
   "email": "sarthakpranesh08@gmail.com"
  },
- "version": "0.1.0",
+ "version": "1.0.0",
  "binaryname": "cpuRoller",
  "frontend": {
   "dir": "frontend",

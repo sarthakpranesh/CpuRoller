@@ -2,54 +2,81 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 
 // importing components
-import SectionTable from './components/SectionTable/index.js'
+import CircularUsage from './components/CircularUsage/index.js'
+
+const gbFact = 1073741824;
 
 function App() {
   const [result, setResult] = useState(null);
+  const [coreCount, setCoreCount] = useState(0);
+
+  const FindAndSetCoreCount = (cpu) => {
+    let a = [];
+    cpu.forEach(c => {
+      if (a.includes(c.coreId)) {
+        return;
+      }
+      a.push(c.coreId);
+    });
+    setCoreCount(a.length);
+  }
 
 	useEffect(() => {
-    window.backend.initStats().then((result) => setResult(result));
+    window.backend.initStats().then((result) => {
+      setResult(result);
+      FindAndSetCoreCount(result.CPUInfo);
+    });
 		setInterval(() => {
 			window.backend.updateCPUStats().then((result) => {
-        console.log(result)
+        // console.log(result)
         setResult(result)
       });
-		}, 1000);
+    }, 1000);
   }, [])
   
   return (
     <div id="app" className="App">
-        <h2 className="PrimaryText SysInfo">Operating System: {result !== null ? result.Os : "..."}</h2>
-        <h2 className="PrimaryText SysInfo">System Arch: {result !== null ? result.Arch : "..."}</h2>
         <div className="GridContainer">
           <div className="GridItem">
-            <SectionTable title="CPU Info" data={{
-              "Cores": result !== null ? result.Count : 0,
-              "Threads": result !== null ? (result.CPUInfo.length !== 0 ? result.CPUInfo.length : 0) : 0,
-              "Usage": result !== null ? result.Usage : 0,
-              "Name": result !== null ? (result.CPUInfo.length !== 0 ? result.CPUInfo[0].modelName : "...") : "...",
-              }}
+            <CircularUsage
+              percentage={result !== null ? result.Usage : 0}
+              title="CPU"
+              subContent={`${result !== null ? (result.Usage).toPrecision(2) : 0}%`}
             />
           </div>
           <div className="GridItem">
-            <SectionTable title="System RAM" data={{
-              Total: result !== null ? result.Mem.total : 0,
-              Used: result !== null ? result.Mem.used : 0,
-              Available: result !== null ? result.Mem.available : 0,
-              "Used %": result !== null ? `${Math.round(result.Mem.usedPercent)}%` : "0%"
-              }}
+            <CircularUsage
+              percentage={result !== null ? result.Mem.usedPercent : 0}
+              title="RAM"
+              subContent={`${result !== null ? (result.Mem.used/gbFact).toPrecision(2) : 0}/${result !== null ? (result.Mem.total/gbFact).toPrecision(2) : 0} GB`}
             />
           </div>
           <div className="GridItem">
-            <SectionTable title="Swap" data={{
-              Total: result !== null ?result.Swap.total : 0,
-              Used: result !== null ?result.Swap.used : 0,
-              Available: result !== null ?result.Swap.free : 0,
-              "Used %": result !== null ? `${Math.round(result.Swap.usedPercent)}%` : "0%"
-              }}
+            <CircularUsage
+              percentage={result !== null ? result.Swap.usedPercent : 0}
+              title="SWAP"
+              subContent={`${result !== null ? (result.Swap.used/gbFact).toPrecision(2) : 0}/${result !== null ? (result.Swap.total/gbFact).toPrecision(2) : 0} GB`}
             />
           </div>
         </div>
+        <h4 className="PrimaryText SysInfo">
+          <span className="SecondaryText">CPU Model:</span> {result !== null ? result.CPUInfo[0].modelName : ""}
+        </h4>
+        <h4 className="PrimaryText SysInfo">
+          <span className="SecondaryText">Total CPUs:</span> {coreCount}
+        </h4>
+        <h4 className="PrimaryText SysInfo">
+          <span className="SecondaryText">Total Threads:</span> {result !== null ? result.CPUInfo.length : 0}
+        </h4>
+        <h4 className="PrimaryText SysInfo">
+          <span className="SecondaryText">Cache Size:</span> {result !== null ? result.CPUInfo[0].cacheSize : 0}
+        </h4>
+        <h4 className="PrimaryText SysInfo">
+          <span className="SecondaryText">Operating System:</span> {result !== null ? result.Os : " "}
+        </h4>
+        <h4 className="PrimaryText SysInfo">
+          <span className="SecondaryText">System Arch:</span> {result !== null ? result.Arch : " "}
+        </h4>
     </div>
   );
 }
