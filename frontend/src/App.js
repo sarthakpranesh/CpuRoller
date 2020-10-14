@@ -60,7 +60,16 @@ function App() {
           </div>
         </div>
         <h4 className="PrimaryText SysInfo">
-          <span className="SecondaryText">CPU Model:</span> {result !== null ? result.CPUInfo[0].modelName : ""}
+          <span className="SecondaryText">
+            CPU Model:
+          </span>
+          {result !== null ? 
+            ( result.CPUInfo !== null ? 
+              result.CPUInfo[0].modelName 
+              : "" 
+            )
+              : ""
+          }
         </h4>
         <h4 className="PrimaryText SysInfo">
           <span className="SecondaryText">Total CPUs:</span> {coreCount}

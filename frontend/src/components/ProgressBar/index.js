@@ -39,20 +39,6 @@ class ProgressBar extends Component {
         return `${strokeLength}, ${circumference}`
     }
 
-    getExtendedWidth = () => {
-        const {
-            strokeWidth,
-            pointerRadius,
-            pointerStrokeWidth,
-            trackStrokeWidth
-        } = this.props
-        const pointerWidth = pointerRadius + pointerStrokeWidth
-
-        if (pointerWidth > strokeWidth && pointerWidth > trackStrokeWidth) return pointerWidth * 2
-        else if (strokeWidth > trackStrokeWidth) return strokeWidth * 2
-        else return trackStrokeWidth * 2
-    }
-
     render() {
         const {
             trackStrokeWidth,
@@ -66,10 +52,10 @@ class ProgressBar extends Component {
             transition,
         } = this.props
 
-        const d = 2 * 100
-        const width = d + this.getExtendedWidth()
+        const width = window.innerWidth * 0.20 > 200 ? 220 : window.innerWidth * 0.20;
+        const radius = ( width / 2 ) - strokeWidth;
 
-        const circumference = 2 * Math.PI * 100
+        const circumference = 2 * Math.PI * radius;
         const strokeLength = (circumference / 360) * (360)
 
         return (
@@ -93,7 +79,7 @@ class ProgressBar extends Component {
                         <circle
                             cx={width / 2}
                             cy={width / 2}
-                            r={100}
+                            r={radius}
                             fill="none"
                             stroke={trackStrokeColor}
                             strokeWidth={trackStrokeWidth}
@@ -102,7 +88,6 @@ class ProgressBar extends Component {
                                 circumference
                             )}
                             strokeLinecap={trackStrokeLinecap}
-                            className="RCP__track"
                             style={{ transition: trackTransition }}
                         />
                     )}
@@ -110,7 +95,7 @@ class ProgressBar extends Component {
                         <circle
                             cx={width / 2}
                             cy={width / 2}
-                            r={100}
+                            r={radius}
                             fill="none"
                             stroke={strokeColor}
                             strokeWidth={strokeWidth}
@@ -122,7 +107,6 @@ class ProgressBar extends Component {
                                 strokeLength
                             )}
                             strokeLinecap={strokeLinecap}
-                            className="RCP__progress"
                             style={{ transition }}
                         />
                     )}
