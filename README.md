@@ -29,7 +29,7 @@ Make sure you have GO lang and npm installed
 1. `git clone https://github.com/sarthakpranesh/CpuRoller`
 2. `cd CpuRoller`
 3. If you don't have Wails then install it `go get -u github.com/wailsapp/wails/cmd/wails`
-4. `wails serve`
+4. `wails serve` - leave the command running and open another terminal
 5. `cd frontend`
 6. `yarn install`
 7. `yarn start`
