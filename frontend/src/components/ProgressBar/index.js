@@ -122,7 +122,7 @@ ProgressBar.defaultProps = {
     strokeWidth: 10,
     strokeColor: 'indianred',
     strokeLinecap: 'round',
-    transition: '.3s ease',
+    transition: '0.3s ease',
     trackStrokeColor: '#e6e6e6',
     trackStrokeWidth: 10,
     trackStrokeLinecap: 'round',

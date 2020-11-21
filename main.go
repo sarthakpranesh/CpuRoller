@@ -30,12 +30,12 @@ func main() {
 	css := mewn.String("./frontend/build/static/css/main.css")
 
 	app := wails.CreateApp(&wails.AppConfig{
-		Width:  1024,
-		Height: 768,
+		Width:  800,
+		Height: 500,
 		Title:  "cpuRoller",
 		JS:     js,
 		CSS:    css,
-		Colour: "#131313",
+		Colour: "#162447",
 	})
 	app.Bind(initStats)
 	app.Bind(updateCPUStats)

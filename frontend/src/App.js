@@ -4,9 +4,12 @@ import './App.css';
 // importing components
 import CircularUsage from './components/CircularUsage/index.js'
 
+import CpuLogo from './logo.png';
+
 const gbFact = 1073741824;
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [result, setResult] = useState(null);
   const [coreCount, setCoreCount] = useState(0);
 
@@ -25,6 +28,7 @@ function App() {
     window.backend.initStats().then((result) => {
       setResult(result);
       FindAndSetCoreCount(result.CPUInfo);
+      setLoading(false);
     });
 		setInterval(() => {
 			window.backend.updateCPUStats().then((result) => {
@@ -33,6 +37,14 @@ function App() {
       });
     }, 1000);
   }, [])
+
+  if (loading) {
+    return (
+      <div id="app" className="App">
+        <img src={CpuLogo} />
+      </div>
+    )
+  }
   
   return (
     <div id="app" className="App">
@@ -59,7 +71,7 @@ function App() {
             />
           </div>
         </div>
-        <h4 className="PrimaryText SysInfo">
+        <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">
             CPU Model:
           </span>
@@ -70,22 +82,22 @@ function App() {
             )
               : ""
           }
-        </h4>
-        <h4 className="PrimaryText SysInfo">
+        </h5>
+        <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">Total CPUs:</span> {coreCount}
-        </h4>
-        <h4 className="PrimaryText SysInfo">
+        </h5>
+        <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">Total Threads:</span> {result !== null ? result.CPUInfo.length : 0}
-        </h4>
-        <h4 className="PrimaryText SysInfo">
+        </h5>
+        <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">Cache Size:</span> {result !== null ? result.CPUInfo[0].cacheSize : 0}
-        </h4>
-        <h4 className="PrimaryText SysInfo">
+        </h5>
+        <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">Operating System:</span> {result !== null ? result.Os : " "}
-        </h4>
-        <h4 className="PrimaryText SysInfo">
+        </h5>
+        <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">System Arch:</span> {result !== null ? result.Arch : " "}
-        </h4>
+        </h5>
     </div>
   );
 }
