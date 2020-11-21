@@ -11,11 +11,15 @@
   "dir": "frontend",
   "install": "npm install",
   "build": "npm run build",
-  "bridge": "src"
+  "bridge": "src",
+  "serve": "npm run start"
  },
- "WailsVersion": "",
+ "tags": "",
+ "WailsVersion": "1.9.1",
  "CrossCompile": false,
  "Platform": "",
  "Architecture": "",
- "LdFlags": ""
+ "LdFlags": "",
+ "GoPath": "",
+ "UseFirebug": false
 }

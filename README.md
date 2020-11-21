@@ -39,8 +39,8 @@ Make sure you have GO lang and npm installed
 3. If you don't have Wails then install it using the following command: `go get -u github.com/wailsapp/wails/cmd/wails`
 4. `wails serve` - leave the command running and open another terminal
 5. `cd frontend`
-6. `yarn install`
-7. `yarn start`
+6. `npm install`
+7. `npm run start`
 
 <br />
 

@@ -2,7 +2,7 @@
   "name": "cpuroller",
   "author": "Sarthak Pranesh<sarthakpranesh08@gmail.com>",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@wailsapp/runtime": "^1.0.10",
     "core-js": "^3.6.4",
