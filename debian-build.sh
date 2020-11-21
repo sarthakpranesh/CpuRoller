@@ -1,6 +1,6 @@
 packageName=`jq -r '.name' project.json`
 packageVersion=`jq -r '.version' project.json`
-packagePlatform="amd64"
+packagePlatform="all"
 packageBinName=`jq -r '.binaryname' project.json`
 packageDisc=`jq -r '.description' project.json`
 
