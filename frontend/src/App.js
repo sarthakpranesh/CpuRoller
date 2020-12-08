@@ -21,9 +21,12 @@ function App() {
     let coreCount = 0;
     let threadCount = 0;
 
+    // thread count
+    threadCount = data.Count;
+
     /* 
       For some reason the library being used gives different results 
-      on different platforms such as linux and darwin.
+      on different platforms such as linux and darwin for core counts.
       Hence the following switch case handles that
     */
     switch(os) {
@@ -37,25 +40,16 @@ function App() {
           a.push(c.coreId);
         });
         coreCount = a.length;
-
-        // thread counts
-        threadCount = cpu.length;
         break;
 
       case "darwin":
         // core count
         coreCount = cpu[0].cores;
-
-        // thread count
-        threadCount = data.Count;
         break;
 
       default:
         // core count
         coreCount = cpu[0].cores;
-
-        // thread count
-        threadCount = data.Count;
     }
     
     setCoreCount(coreCount);

@@ -1,5 +1,12 @@
 <div align="center">
 
+<br />
+
+<img src="./sample.gif" />
+
+<br />
+<br />
+
 # Cpu Roller
 
 [![GitHub issues](https://img.shields.io/github/issues/sarthakpranesh/CpuRoller)](https://github.com/sarthakpranesh/CpuRoller/issues)
@@ -9,17 +16,15 @@
 [![GitHub](https://img.shields.io/github/license/sarthakpranesh/CpuRoller)](https://github.com/sarthakpranesh/CpuRoller/blob/master/LICENSE)
 
 <br />
-
-<img src="./sample.gif" />
+<br />
 
 </div>
-
-<br />
 
 ## What it does
 
 Simple Cross platform Desktop application for displaying realtime CPU usage of your Desktop/Laptop. Available for Linux and MacOS. Utilizes React.js frontend and Go lang backend, developed with Wails.
 
+<br />
 <br />
 
 ## How to Install
@@ -38,10 +43,12 @@ Download the latest `.app.zip` file from release. Extract this file, right click
 All releases also provide binary executables, if you have any issues you can try running these executables directly.
 
 <br />
-
+<br />
 
 ## For Developer
 Make sure you have GO lang, npm and wails installed. First `fork` this repository, `clone` it locally and `cd` into it.
+
+<br />
 
 ### For Active Development
 The following commands will let you use the standard `React` tools and development process to build the app. If you change any GO code then you'll have to rerun the 1st step for the change to take affect.
@@ -53,7 +60,6 @@ The following commands will let you use the standard `React` tools and developme
 <br />
 
 ### Building and Packaging
-
 #### For Debian:
 1. First Build app binary using: `wails build`
 2. Then Package app using: `bash ./debian-build.sh`
@@ -64,16 +70,18 @@ The following commands will let you use the standard `React` tools and developme
 I don't have a Mac so I use cross compilation to package Mac apps using the following 
 * Run the following on Linux with Docker installed: `wails build -x darwin/amd64 -p`
 
-<br/>
+<br />
+<br />
 
-## Found Something Broken
+## Issues/Requests/Discussion
 
-If you find something broken or not working on your machine/os, please feel free to open an issue.
+If you find something broken or not working properly on your machine/os, please feel free to open an issue. All feature requests, suggestions and discussions are welcomed.
 
+<br />
 <br />
 
 <div align="center">
 
-##### Made with ❤️
+### Made with ❤️
 
 </div>

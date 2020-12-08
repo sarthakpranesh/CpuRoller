@@ -4,7 +4,7 @@
   "version": "1.1.1",
   "private": true,
   "dependencies": {
-    "@wailsapp/runtime": "^1.0.10",
+    "@wailsapp/runtime": "^1.1.1",
     "core-js": "^3.6.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
