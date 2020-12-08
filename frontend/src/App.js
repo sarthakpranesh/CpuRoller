@@ -12,22 +12,60 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState(null);
   const [coreCount, setCoreCount] = useState(0);
+  const [threadCount, setThreadCount] = useState(0);
 
-  const FindAndSetCoreCount = (cpu) => {
-    let a = [];
-    cpu.forEach(c => {
-      if (a.includes(c.coreId)) {
-        return;
-      }
-      a.push(c.coreId);
-    });
-    setCoreCount(a.length);
+  const FindAndSetCpuParams = (data) => {
+    const cpu = data.CPUInfo;
+    const os = data.Os;
+
+    let coreCount = 0;
+    let threadCount = 0;
+
+    /* 
+      For some reason the library being used gives different results 
+      on different platforms such as linux and darwin.
+      Hence the following switch case handles that
+    */
+    switch(os) {
+      case "linux":
+        // core counts
+        let a = [];
+        cpu.forEach(c => {
+          if (a.includes(c.coreId)) {
+            return;
+          }
+          a.push(c.coreId);
+        });
+        coreCount = a.length;
+
+        // thread counts
+        threadCount = cpu.length;
+        break;
+
+      case "darwin":
+        // core count
+        coreCount = cpu[0].cores;
+
+        // thread count
+        threadCount = data.Count;
+        break;
+
+      default:
+        // core count
+        coreCount = cpu[0].cores;
+
+        // thread count
+        threadCount = data.Count;
+    }
+    
+    setCoreCount(coreCount);
+    setThreadCount(threadCount);
   }
 
 	useEffect(() => {
     window.backend.initStats().then((result) => {
       setResult(result);
-      FindAndSetCoreCount(result.CPUInfo);
+      FindAndSetCpuParams(result);
       setLoading(false);
     });
 		setInterval(() => {
@@ -87,7 +125,7 @@ function App() {
           <span className="SecondaryText">Total CPUs:</span> {coreCount}
         </h5>
         <h5 className="PrimaryText SysInfo">
-          <span className="SecondaryText">Total Threads:</span> {result !== null ? result.CPUInfo.length : 0}
+          <span className="SecondaryText">Total Threads:</span> {threadCount}
         </h5>
         <h5 className="PrimaryText SysInfo">
           <span className="SecondaryText">Cache Size:</span> {result !== null ? result.CPUInfo[0].cacheSize : 0}
