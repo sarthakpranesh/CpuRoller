@@ -7,6 +7,7 @@
     "@wailsapp/runtime": "^1.1.1",
     "core-js": "^3.6.4",
     "react": "^16.13.1",
+    "react-app-polyfill": "^1.0.6",
     "react-dom": "^16.13.1",
     "react-modal": "3.11.2",
     "wails-react-scripts": "3.0.1-2"
@@ -24,12 +25,14 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ie 11"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "ie 11"
     ]
   }
 }

@@ -2,10 +2,18 @@
     width: 20vw;
     height: 20vw;
     display: flex;
-    margin: 20px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 20px;
+    position: relative;
+}
+
+.CircularUsageInfoContainer {
+    position: absolute;
+    top: 10vw;
+    left: 10vw;
+    transform: translate(-50%, -50%);
 }
 
 .CircularUsageTitle {
@@ -14,5 +22,6 @@
 }
 
 .CircularUsageSubContent {
+    text-align: center;
     margin: 0px;
 }

@@ -47,7 +47,6 @@ class ProgressBar extends Component {
             strokeColor,
             strokeWidth,
             strokeLinecap,
-            children,
             trackTransition,
             transition,
         } = this.props
@@ -66,9 +65,6 @@ class ProgressBar extends Component {
                 alignItems: 'center',
                 textAlign: 'center',
             }}>
-                <div style={{position: 'absolute'}}>
-                    {children || null}
-                </div>
                 <svg
                     width={width}
                     height={width}

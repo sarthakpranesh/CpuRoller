@@ -1,5 +1,4 @@
 import React from 'react'
-// import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import ProgressBar from "../ProgressBar/index.js";
 
 // importing styles and constants
@@ -10,18 +9,17 @@ const CircularUsage = ({percentage=66, title="title", subContent="subs"}) => {
 
   return (
     <div className="CircularUsageWrapper">
+      <div className="CircularUsageInfoContainer">
+        <h1 className="PrimaryText CircularUsageTitle">{title}</h1>
+        <p className="SecondaryText CircularUsageSubContent">{subContent}</p>
+      </div>
       <ProgressBar
         progress={percentage}
         strokeWidth={ProgressBarCons.strokeWidth}
         strokeColor={ProgressBarCons.strokeColor}
         trackStrokeWidth={ProgressBarCons.trackStrokeWidth}
         trackStrokeColor={ProgressBarCons.trackStrokeColor}
-      >
-        <div>
-          <h1 className="PrimaryText CircularUsageTitle">{title}</h1>
-          <p className="SecondaryText CircularUsageSubContent">{subContent}</p>
-        </div>
-      </ProgressBar>
+      />
     </div>
   );
 }

@@ -31,14 +31,15 @@ Secondary Text: #e43f5a
 }
 
 .GridContainer {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  margin: 10px;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .GridItem {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
