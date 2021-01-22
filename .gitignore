@@ -17,7 +17,10 @@
 # Not required md file in frontend dir
 frontend/package.json.md5
 
-# windows not required build file
+# windows not required build files
 cpuRoller.ico
 cpuRoller.rc
 cpuRoller-res.syso
+
+# macos not required build files
+
