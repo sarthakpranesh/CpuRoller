@@ -5,7 +5,7 @@
   "name": "Sarthak Pranesh",
   "email": "sarthakpranesh08@gmail.com"
  },
- "version": "1.1.1",
+ "version": "1.1.2",
  "binaryname": "cpuRoller",
  "frontend": {
   "dir": "frontend",
@@ -15,7 +15,7 @@
   "serve": "npm run start"
  },
  "tags": "",
- "WailsVersion": "1.9.1",
+ "WailsVersion": "1.11.0",
  "CrossCompile": false,
  "Platform": "",
  "Architecture": "",

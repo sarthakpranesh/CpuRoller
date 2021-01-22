@@ -13,3 +13,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# windows not required build file
+./cpuRoller.ico
+./cpuRoller.rc
+./cpuRoller-res.syso
