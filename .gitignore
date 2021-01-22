@@ -14,7 +14,10 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
+# Not required md file in frontend dir
+frontend/package.json.md5
+
 # windows not required build file
-./cpuRoller.ico
-./cpuRoller.rc
-./cpuRoller-res.syso
+cpuRoller.ico
+cpuRoller.rc
+cpuRoller-res.syso
