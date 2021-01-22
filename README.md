@@ -22,23 +22,34 @@
 
 ## What it does
 
-Simple Cross platform Desktop application for displaying realtime CPU usage of your Desktop/Laptop. Available for Linux and MacOS. Utilizes React.js frontend and Go lang backend, developed with Wails.
+Simple Cross platform Desktop application for displaying realtime CPU usage of your Desktop/Laptop. Available for Windows, Linux and MacOS. Utilizes React.js frontend and Go lang backend, developed with Wails.
 
 <br />
 <br />
 
 ## How to Install
-This app is currently supported in MacOS and Debian based linux distribution like Ubuntu.
+This app is currently supported and tested on Windows 10, MacOS and Debian based linux distribution like Ubuntu.
+
+<br />
+
+### Windows
+Download the latest `.exe` file from [here](https://github.com/sarthakpranesh/CpuRoller/releases) and directly run it. Their is no installation required. You might get a warning dialog from Windows, just click on `more info` and then click `run anyway` to start the application.
+
+<br />
 
 ### Ubuntu/POP OS/Other Debian distros
-Download the latest `.deb` file from release of the application and either use `Eddy` (or any other GUI tool) to install the `.deb` package or run the following in the terminal (make sure you replace the `x.x.x` with the version number you downloaded)
+Download the latest `.deb` file from [here](https://github.com/sarthakpranesh/CpuRoller/releases) and either use `Eddy` (or any other GUI tool) to install the `.deb` package or run the following in the terminal (make sure you replace the `x.x.x` with the version number you downloaded)
 ```bash
 sudo dpkg -i cpuRoller_x.x.x_amd64.deb
 ```
 Now you can either run the application by running the `cpuRoller` command in terminal or by application icon.
 
+<br />
+
 ### Mac OS
-Download the latest `.app.zip` file from release. Extract this file, right click on it and select `open` from the menu. Give it permission to run and the app will start
+Download the latest `.app.zip` file from [here](https://github.com/sarthakpranesh/CpuRoller/releases). Extract this file, right click on it and select `open` from the menu. Give it permission to run and your app will start.
+
+<br />
 
 All releases also provide binary executables, if you have any issues you can try running these executables directly.
 
@@ -60,15 +71,23 @@ The following commands will let you use the standard `React` tools and developme
 <br />
 
 ### Building and Packaging
+#### For Windows:
+If you are on `windows` then simply run the following:
+* `wails build -p`
+
+If you are on `linux` or `macos` make sure you have docker installed and run the following:
+* `bash win32-build.sh`
+
 #### For Debian:
 1. First Build app binary using: `wails build`
 2. Then Package app using: `bash ./debian-build.sh`
 
 #### For Mac OS:
-* Just run the following on a Mac: `wails build -p`
+If you are on `macos` then simply run the following:
+* `wails build -p`
 
-I don't have a Mac so I use cross compilation to package Mac apps using the following 
-* Run the following on Linux with Docker installed: `wails build -x darwin/amd64 -p`
+If you are on `linux` then make sure you have docker installed and run the following:
+* `bash mac-build.sh`
 
 <br />
 <br />
