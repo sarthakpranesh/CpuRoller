@@ -5,41 +5,42 @@ Secondary Text: #e43f5a
 */
 
 .App {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #162447;
-  overflow: hidden;
-}
-
-.PrimaryText {
-  color: #ececec;
-  font-weight: 600;
-}
-
-.SecondaryText {
-  color: #e43f5a;
-  font-weight: 600;
-}
-
-.SysInfo {
-  margin: 0px;
-  margin-top: 10px;
-}
-
-.GridContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.GridItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #162447;
+    overflow: hidden;
+  }
+  
+  .PrimaryText {
+    color: #ececec;
+    font-weight: 600;
+  }
+  
+  .SecondaryText {
+    color: #e43f5a;
+    font-weight: 600;
+  }
+  
+  .SysInfo {
+    margin: 0px;
+    margin-top: 10px;
+  }
+  
+  .GridContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .GridItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  

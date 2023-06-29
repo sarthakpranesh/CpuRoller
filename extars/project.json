@@ -1,0 +1,25 @@
+{
+ "name": "cpuRoller",
+ "description": "Real time system usage and information",
+ "author": {
+  "name": "Sarthak Pranesh",
+  "email": "sarthakpranesh08@gmail.com"
+ },
+ "version": "1.1.2",
+ "binaryname": "cpuRoller",
+ "frontend": {
+  "dir": "frontend",
+  "install": "npm install",
+  "build": "npm run build",
+  "bridge": "src",
+  "serve": "npm run start"
+ },
+ "tags": "",
+ "WailsVersion": "1.11.0",
+ "CrossCompile": false,
+ "Platform": "",
+ "Architecture": "",
+ "LdFlags": "",
+ "GoPath": "",
+ "UseFirebug": false
+}

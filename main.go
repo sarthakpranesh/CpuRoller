@@ -1,43 +1,36 @@
 package main
 
 import (
-	"cpuRoller/pkg/sys"
+	"embed"
 
-	"github.com/leaanthony/mewn"
-	"github.com/wailsapp/wails"
+	"github.com/wailsapp/wails/v2"
+	"github.com/wailsapp/wails/v2/pkg/options"
+	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 )
 
-var (
-	stats    = &sys.Stats{}
-	cpuStats sys.CpuStats
-)
-
-func initStats() sys.CpuStats {
-	cpuStats = stats.GetStats()
-	return cpuStats
-}
-
-func updateCPUStats() sys.CpuStats {
-	cpuStats.Usage = stats.GetCPUUsage()
-	cpuStats.Swap = stats.GetSwapMemory()
-	cpuStats.Mem = stats.GetMemory()
-	return cpuStats
-}
+//go:embed all:frontend/dist
+var assets embed.FS
 
 func main() {
+	// Create an instance of the app structure
+	app := NewApp()
 
-	js := mewn.String("./frontend/build/static/js/main.js")
-	css := mewn.String("./frontend/build/static/css/main.css")
-
-	app := wails.CreateApp(&wails.AppConfig{
-		Width:  800,
-		Height: 500,
+	// Create application with options
+	err := wails.Run(&options.App{
 		Title:  "cpuRoller",
-		JS:     js,
-		CSS:    css,
-		Colour: "#162447",
+		Width:  1024,
+		Height: 768,
+		AssetServer: &assetserver.Options{
+			Assets: assets,
+		},
+		BackgroundColour: &options.RGBA{R: 27, G: 38, B: 54, A: 1},
+		OnStartup:        app.startup,
+		Bind: []interface{}{
+			app,
+		},
 	})
-	app.Bind(initStats)
-	app.Bind(updateCPUStats)
-	app.Run()
+
+	if err != nil {
+		println("Error:", err.Error())
+	}
 }

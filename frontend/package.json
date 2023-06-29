@@ -1,38 +1,22 @@
 {
-  "name": "cpuroller",
-  "author": "Sarthak Pranesh<sarthakpranesh08@gmail.com>",
-  "version": "1.1.1",
+  "name": "frontend",
   "private": true,
-  "dependencies": {
-    "@wailsapp/runtime": "^1.1.1",
-    "core-js": "^3.6.4",
-    "react": "^16.13.1",
-    "react-app-polyfill": "^1.0.6",
-    "react-dom": "^16.13.1",
-    "react-modal": "3.11.2",
-    "wails-react-scripts": "3.0.1-2"
-  },
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all",
-      "ie 11"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version",
-      "ie 11"
-    ]
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.0.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7"
   }
 }
