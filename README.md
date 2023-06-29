@@ -2,7 +2,7 @@
 
 <br />
 
-<img src="./sample.gif" />
+<img src="./extars/sample.gif" />
 
 <br />
 <br />

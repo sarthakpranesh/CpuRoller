@@ -86,21 +86,21 @@ function App() {
             <CircularUsage
               percentage={result !== null ? result.Usage : 0}
               title="CPU"
-              subContent={`${result !== null ? (result.Usage).toPrecision(2) : 0}%`}
+              subContent={`${result !== null ? (result.Usage).toFixed(2) : 0}%`}
             />
           </div>
           <div className="GridItem">
             <CircularUsage
               percentage={result !== null ? result.Mem.usedPercent : 0}
               title="RAM"
-              subContent={`${result !== null ? (result.Mem.used/gbFact).toPrecision(2) : 0}/${result !== null ? (result.Mem.total/gbFact).toPrecision(2) : 0} GB`}
+              subContent={`${result !== null ? (result.Mem.used/gbFact).toFixed(2) : 0}/${result !== null ? (result.Mem.total/gbFact).toPrecision(2) : 0} GB`}
             />
           </div>
           <div className="GridItem">
             <CircularUsage
               percentage={result !== null ? result.Swap.usedPercent : 0}
               title="SWAP"
-              subContent={`${result !== null ? (result.Swap.used/gbFact).toPrecision(2) : 0}/${result !== null ? (result.Swap.total/gbFact).toPrecision(2) : 0} GB`}
+              subContent={`${result !== null ? (result.Swap.used/gbFact).toFixed(2) : 0}/${result !== null ? (result.Swap.total/gbFact).toPrecision(2) : 0} GB`}
             />
           </div>
         </div>
@@ -110,7 +110,7 @@ function App() {
           </span>
           {result !== null ? 
             ( result.CPUInfo !== null ? 
-              result.CPUInfo[0].modelName 
+              ` ${result.CPUInfo[0].modelName}` 
               : "" 
             )
               : ""

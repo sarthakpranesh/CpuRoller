@@ -19,9 +19,11 @@
 .CircularUsageTitle {
     margin: 0px;
     padding-bottom: 4px;
+    font-size: 32px;
 }
 
 .CircularUsageSubContent {
     text-align: center;
     margin: 0px;
+    font-size: 18px;
 }
